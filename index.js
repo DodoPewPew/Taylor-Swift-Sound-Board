@@ -1,75 +1,53 @@
 var numberOfDrums = document.querySelectorAll(".drum").length;
 
-for ( var i = 0; i<numberOfDrums; i++){
-    
-    document.querySelectorAll(".drum")[i].addEventListener("click", function(){
-       
+// Create an object to keep track of the sound state
+var soundState = {
+    "w": { audio: new Audio("sounds/blank_space.mp3"), isPlaying: false },
+    "a": { audio: new Audio("sounds/you_belong_with_me.mp3"), isPlaying: false },
+    "s": { audio: new Audio("sounds/lover.mp3"), isPlaying: false },
+    "d": { audio: new Audio("sounds/lavender_haze.mp3"), isPlaying: false },
+    "j": { audio: new Audio("sounds/red.mp3"), isPlaying: false },
+    "k": { audio: new Audio("sounds/lwymmd.mp3"), isPlaying: false },
+    "l": { audio: new Audio("sounds/sparks_fly.mp3"), isPlaying: false }
+};
 
+for (var i = 0; i < numberOfDrums; i++) {
+    var button = document.querySelectorAll(".drum")[i];
 
+    // Click event listener to play the sound
+    button.addEventListener("click", function () {
         var buttonInnerHTML = this.innerHTML;
-        switch (buttonInnerHTML) {
-            case "w":
-                var tom1 = new Audio("sounds/blank_space.mp3");
-                tom1.play();
-                break;
-
-            
-            case "a":
-                var tom2 = new Audio("sounds/you_belong_with_me.mp3");
-                tom2.play()
-                break;
-
-            case "s":
-                var tom3 = new Audio("sounds/lover.mp3");
-                tom3.play();
-                break;
-
-            case "d":
-                var tom4 = new Audio("sounds/lavender_haze.mp3");
-                tom4.play();
-                break;
-
-            case "j":
-                var snare = new Audio("sounds/red.mp3");
-                snare.play();
-                break;
-
-            case "k":
-                var crash = new Audio("sounds/lwymmd.mp3");
-                crash.play();
-                break;
-
-            case "l":
-                var kick= new Audio("sounds/sparks_fly.mp3");
-                kick.play();
-                break;
-
-
-        
-
-            default: console.log(buttonInnerHTML);
-                
-        }
-        
+        playOrStopSound(buttonInnerHTML);
     });
 
-    
-    document.querySelectorAll(".drum")[i].addEventListener("mouseover", function(){
-        console.log("test");
-        
+    // Mouseover and mouseout event listeners for visual effects
+    button.addEventListener("mouseover", function () {
         this.style.color = "#ffffff";
-
     });
 
-    document.querySelectorAll(".drum")[i].addEventListener("mouseout", function(){
-        console.log("test");
-        
+    button.addEventListener("mouseout", function () {
         this.style.color = "#aec0fc";
+    });
 
+    // Keydown and keyup event listeners to play/stop the sound
+    document.addEventListener("keydown", function (event) {
+        var key = event.key.toLowerCase();
+        if (soundState[key]) {
+            playOrStopSound(key);
+        }
     });
 }
 
-
-
-
-
+// Function to play or stop the sound based on the key
+function playOrStopSound(key) {
+    if (soundState[key]) {
+        if (soundState[key].isPlaying) {
+            soundState[key].audio.pause();
+            soundState[key].audio.currentTime = 0; // Reset audio to the beginning
+            soundState[key].isPlaying = false;
+        } else {
+            soundState[key].audio.play();
+            soundState[key].isPlaying = true;
+        }
+    }
+}

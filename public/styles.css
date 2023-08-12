@@ -1,0 +1,103 @@
+body {
+  text-align: center;
+  background-color: #dec0fc;
+}
+
+h1 {
+  font-size: 5rem;
+  color: #fdcdcd;
+  font-family: "Tungsten";
+  text-shadow: 3px 0 #aec0fc;
+}
+
+footer {
+  color: #ffffff;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.w {
+  background-image: url("images/1989.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+
+.a {
+  background-image: url("images/Fearless.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.s {
+  background-image: url("images/Lover.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.d {
+  background-image: url("images/Midnights.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.j {
+  background-image: url("images/Red.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.k {
+  background-image: url("images/Reputation.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.l {
+  background-image: url("images/Speak_Now.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.set {
+  margin: 10% auto;
+}
+
+.game-over {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #dbedf3;
+  opacity: 0.5;
+}
+
+.red {
+  color: red;
+}
+
+.drum {
+  outline: none;
+  border: 10px solid #fdcdcd;
+  font-size: 5rem;
+  font-family: "Tungsten", cursive;
+  line-height: 2;
+  font-weight: 900;
+  color: #aec0fc;
+  text-shadow: 3px 0 #dbedf3;
+  border-radius: 15px;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  margin: 10px;
+  background-color: white;
+}
